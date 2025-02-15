@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Detection - AI Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/face_detect.css') }}">
+</head>
+<body>
+    <div id="background"></div>
+    <div class="container face-detect-container">
+        <nav class="nav-bar">
+            <a href="{{ url_for('index') }}" class="nav-link">← Back</a>
+            <h2 class="page-title glow-text">Face Detection</h2>
+        </nav>
+
+        <nav class="nav-menu">
+            <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('face_detect') }}" class="nav-link active">Face Detection</a>
+            <a href="{{ url_for('results') }}" class="nav-link">Results</a>
+            <a href="{{ url_for('admin') }}" class="nav-link">Admin</a>
+        </nav>
+
+        <div class="detection-grid">
+            <!-- Video Feed Section -->
+            <div class="video-container">
+                <div class="video-frame">
+                    <img src="{{ url_for('video_feed') }}" alt="Video Feed">
+                    <div class="detection-overlay"></div>
+                </div>
+                <button id="capture-btn" class="action-button">
+                    <span class="button-glow"></span>
+                    Capture
+                </button>
+            </div>
+
+            <!-- Analysis Panel -->
+            <div class="analysis-panel">
+                <div class="panel-section">
+                    <h3>Face Analysis</h3>
+                    <div class="analysis-data">
+                        <div class="data-item">
+                            <span class="label">Emotion:</span>
+                            <span id="emotion-value" class="value">Analyzing...</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="label">Age Range:</span>
+                            <span id="age-value" class="value">Analyzing...</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="label">Gender:</span>
+                            <span id="gender-value" class="value">Analyzing...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3>Detection Stats</h3>
+                    <div class="stats-container">
+                        <div class="stat-circle">
+                            <span id="face-count">0</span>
+                            <label>Faces Detected</label>
+                        </div>
+                        <div class="stat-circle">
+                            <span id="confidence">0%</span>
+                            <label>Confidence</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/three.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/background.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/face_detection.js') }}"></script>
+</body>
+</html> 

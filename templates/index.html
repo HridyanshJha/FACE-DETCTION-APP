@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Face Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+</head>
+<body>
+    <div id="background"></div>
+    <div class="container">
+        <header class="header">
+            <h1 class="glow-text">AI Face Detection</h1>
+            <p class="subtitle">Advanced facial recognition with real-time analysis</p>
+        </header>
+        
+        <nav class="nav-menu">
+            <a href="{{ url_for('index') }}" class="nav-link active">Home</a>
+            <a href="{{ url_for('face_detect') }}" class="nav-link">Face Detection</a>
+            <a href="{{ url_for('results') }}" class="nav-link">Results</a>
+            <a href="{{ url_for('admin') }}" class="nav-link">Admin</a>
+        </nav>
+        
+        <main class="main-content">
+            <div class="feature-card">
+                <h2>Features</h2>
+                <ul>
+                    <li>Real-time Face Detection</li>
+                    <li>Emotion Analysis</li>
+                    <li>Age & Gender Detection</li>
+                    <li>Data Analytics</li>
+                </ul>
+            </div>
+            
+            <a href="{{ url_for('face_detect') }}" class="cta-button">
+                Get Started
+                <span class="button-glow"></span>
+            </a>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/three.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/background.js') }}"></script>
+</body>
+</html> 

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection Results - AI Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="background"></div>
+    <div class="container results-container">
+        <nav class="nav-bar">
+            <a href="{{ url_for('face_detect') }}" class="nav-link">← Back to Detection</a>
+            <h2 class="page-title glow-text">Detection Results</h2>
+        </nav>
+
+        <nav class="nav-menu">
+            <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('face_detect') }}" class="nav-link">Face Detection</a>
+            <a href="{{ url_for('results') }}" class="nav-link active">Results</a>
+            <a href="{{ url_for('admin') }}" class="nav-link">Admin</a>
+        </nav>
+
+        <div class="results-grid">
+            <!-- Captured Faces Section -->
+            <section class="faces-section">
+                <h3>Captured Faces</h3>
+                <div class="faces-grid">
+                    <!-- Face Cards will be dynamically added here -->
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section class="analytics-section">
+                <div class="chart-container">
+                    <h3>Emotion Distribution</h3>
+                    <canvas id="emotionChart"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Age Distribution</h3>
+                    <canvas id="ageChart"></canvas>
+                </div>
+
+                <div class="stats-summary">
+                    <h3>Detection Summary</h3>
+                    <div class="summary-grid">
+                        <div class="stat-card">
+                            <span class="stat-value" id="totalFaces">0</span>
+                            <span class="stat-label">Total Faces</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value" id="avgConfidence">0%</span>
+                            <span class="stat-label">Avg. Confidence</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="action-bar">
+            <button id="downloadBtn" class="action-button">
+                <span class="button-glow"></span>
+                Download Report
+            </button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/three.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/background.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/results.js') }}"></script>
+</body>
+</html> 

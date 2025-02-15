@@ -1,0 +1,17 @@
+face_detection_app/
+├── static/
+│   ├── css/
+│   │   ├── style.css
+│   │   └── animations.css
+│   ├── js/
+│   │   ├── three.min.js
+│   │   ├── background.js
+│   │   └── face_detection.js
+│   └── img/
+├── templates/
+│   ├── index.html
+│   ├── face_detect.html
+│   ├── results.html
+│   └── admin.html
+├── app.py
+└── database.py 
